@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo</title>
+     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="bg-zinc-900 text-white">
+
+        <h1 class="text-2xl text-center p-3 font-bold bg-blue-300 text-black">Welcome To TaskManger</h1>
+   
+        <form action="/created" method="post" class="flex flex-col gap-3 p-10 mx-auto" >
+            <input type ="text", placeholder="Add your task" name = 'title' class="bg-zinc-700 text-white p-2 rounded-md border-white">
+            <input type="text" placeholder="Add your description" name ='details' class="bg-zinc-700 text-white p-2 rounded-md">
+            <input type="submit" value="Create" class="bg-blue-500 w-20 text-white p-2 rounded  font-bold">
+        </form>
+
+        <div class="flex flex-wrap p-10 gap-3">
+            <% if(files.length>0){%>
+              <% files.forEach(function(val){ %>
+                <div class="bg-zinc-700 w-72 rounded-md py-3 px-4">
+                    <h1 class="text-white text-3xl tracking-tighter"><%=val %></h1>
+                    <a class="text-blue-500 text-lg inline-block mt-3 hover:cursor-pointer" href="">Read more</a>
+                </div>
+
+              <% }) %>
+
+
+            <% } %>
+        </div>
+</body>
+</html>
