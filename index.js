@@ -40,4 +40,13 @@ app.post('/edit',(req,res)=>{
     })
       
 })
+
+app.post('/delete',(req,res)=>{
+    console.log(req.body)
+    fs.unlink(`files/${req.body.filename}`,(err)=>{
+        res.redirect('/')
+    })
+    
+
+})
 app.listen(3000)
