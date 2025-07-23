@@ -22,4 +22,22 @@ app.post('/created',(req,res)=>{
 
 })
 
+
+app.get('/file/:filename', (req, res) => {
+
+    fs.readFile(`./files/${req.params.filename}`, 'utf-8', (err, data) => {
+        res.render('show', { filename: req.params.filename, content: data });
+    });
+});
+
+app.get('/edit/:filename',(req,res)=>{
+    res.render('edit',{filename:req.params.filename})
+})
+
+app.post('/edit',(req,res)=>{
+    fs.rename(`./files/${req.body.prev_name}`,`./files/${req.body.new_name}`,(err)=>{
+        res.redirect('/')
+    })
+      
+})
 app.listen(3000)
